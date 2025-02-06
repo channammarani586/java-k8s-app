@@ -1,3 +1,11 @@
-FROM openjdk:11-jre-slim
-COPY target/my-java-app.jar /opt/my-java-app.jar
-ENTRYPOINT ["java", "-jar", "/opt/my-java-app.jar"]
+FROM adoptopenjdk/openjdk11:alpine-jre
+
+# Simply the artifact path
+ARG artifact=target/spring-boot-web.jar
+
+WORKDIR /opt/app
+
+COPY ${artifact} app.jar
+
+# This should not be changed
+ENTRYPOINT ["java","-jar","app.jar"]
