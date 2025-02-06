@@ -10,7 +10,7 @@ pipeline {
     stages {
         stage('Clone Repository') {
             steps {
-                git 'https://github.com/your-repo/sample-java-app.git'  // Replace with your repository
+                git https://github.com/channammarani586/java-k8s-app.git
             }
         }
 
